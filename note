@@ -1,0 +1,14 @@
+ConversationFragment    聊天列表界面
+    ConversationLayout 聊天列表界面布局类。本质是一个线性布局，顶部是自定义title，底部是RecyclerView
+        ConversationLayout.initDefault() ->ConversationManagerKit.getInstance().loadConversation->
+        ConversationManager.nativeGetConversationList() 获取会话信息
+    ChatInfo 聊天基础信息类，包含聊天标题，类型（群聊或者单聊），id，是否置顶。@状态（@所有人，@我，）
+
+
+ChatFragment    聊天界面
+    ChatLayout LinearLayout->ChatLayoutUI->AbsChatLayout->ChatLayout。布局xml为chat_layout
+               包含了TitleBarLayout（标题栏），NoticeLayout（提醒栏），MessageLayout（消息栏），InputLayout（输入栏）
+               包含了发送，接收，删除，撤回消息等功能
+
+ChatManagerKit 发送消息的门面类，有单聊和群聊两个子类
+Conversation 正在发送消息的和心累
